@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Multiplication table</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+        .result-box { 
+            width: 250px; 
+            min-height: 250px; 
+            margin: 20px auto; 
+            border: 1px solid #ccc; 
+            padding: 15px; 
+            text-align: left;
+            background-color: #f9f9f9;
+        }
+        .error { color: red; font-weight: bold; text-align: center;}
+    </style>
+
+    <script language="javascript">
+        function displayTable() {
+            var inputNum = document.getElementById("numberInput").value;
+            var resultArea = document.getElementById("resultArea");
+            
+            
+            resultArea.innerHTML = "";
+
+            
+            if (inputNum === "" || isNaN(inputNum)) {
+                resultArea.innerHTML = "<p class='error'>You must enter a number</p>";
+            } 
+            else {
+                
+                var outputHTML = "<b>Multiplication table " + inputNum + ":</b><br/><br/>";
+                
+                
+                for (var i = 1; i <= 10; i++) {
+                    outputHTML += inputNum + " x " + i + " = " + (inputNum * i) + "<br/>";
+                }
+                
+
+                resultArea.innerHTML = outputHTML;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>MULTIPLICATION TABLE</h2>
+    <p>Which multiplication table that you want to display? 
+       <input type="text" id="numberInput" size="5" oninput="displayTable()" />
+    </p>
+
+    <div id="resultArea" class="result-box"></div>
+</body>
+</html>
